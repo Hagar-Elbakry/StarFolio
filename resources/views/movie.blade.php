@@ -1,6 +1,8 @@
 <x-layout>
     <x-slot:heading>
-        About
+        Movie
     </x-slot:heading>
-    <h1>Hello From About Page</h1>
+    <p>
+        {{$movie['description']}}
+    </p>
 </x-layout>

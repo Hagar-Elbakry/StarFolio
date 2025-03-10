@@ -21,13 +21,13 @@
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center">
                     <div class="shrink-0">
-                        <img class="size-8" src="https://img.icons8.com/?size=100&id=121197&format=png&color=000000" alt="Your Company">
+                        <img class="size-8" src="https://img.icons8.com/?size=100&id=VNOu35D2HWOH&format=png&color=000000" alt="Your Company">
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                            <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
+                            <x-nav-link href="/movies" :active="request()->is('movies')">Movies</x-nav-link>
                             <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                 <button type="button" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                     <span class="absolute -inset-1.5"></span>
                                     <span class="sr-only">Open user menu</span>
-                                    <img class="size-8 rounded-full" src="mekho.jpg" alt="">
+                                    <img class="size-8 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Theo_James_Divergent_premiere.jpg/330px-Theo_James_Divergent_premiere.jpg" alt="">
                                 </button>
                             </div>
                         </div>
@@ -83,11 +83,11 @@
             <div class="border-t border-gray-700 pt-4 pb-3">
                 <div class="flex items-center px-5">
                     <div class="shrink-0">
-                        <img class="size-10 rounded-full" src="mekho.jpg" alt="">
+                        <img class="size-10 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Theo_James_Divergent_premiere.jpg/330px-Theo_James_Divergent_premiere.jpg" alt="">
                     </div>
                     <div class="ml-3">
-                        <div class="text-base/5 font-medium text-white"Mekho</div>
-                        <div class="text-sm font-medium text-gray-400">mekho@gmail.com</div>
+                        <div class="text-base/5 font-medium text-white">Theo James</div>
+                        <div class="text-sm font-medium text-gray-400">theojames@gmail.com</div>
                     </div>
                     <button type="button" class="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
                         <span class="absolute -inset-1.5"></span>

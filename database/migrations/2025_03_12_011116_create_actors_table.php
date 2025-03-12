@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Actor;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('movies', function (Blueprint $table) {
+        Schema::create('actors', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(actor::class);
-            $table->string('title');
-            $table->text('description');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('movies');
+        Schema::dropIfExists('actors');
     }
 };

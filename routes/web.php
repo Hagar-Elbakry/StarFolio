@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Actor;
 use Illuminate\Support\Facades\Route;
 use App\Models\Movie;
 
@@ -8,8 +9,9 @@ Route::get('/', function () {
 });
 
 Route::get('/movies', function() {
-
-    return view('movies', ['movies' => Movie::all()]);
+   $actor = Actor::find(1);
+   $movies = $actor->movies()->get();
+    return view('movies', ['movies' => $movies]);
 });
 
 Route::get('/movies/{movie}', function($id) {

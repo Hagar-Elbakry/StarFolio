@@ -4,7 +4,6 @@
     </x-slot:heading>
     <ul>
         @foreach($movies as $movie)
-
             <li>
                 <a href="movies/{{$movie['id']}}">
                 <strong>{{$movie['title']}}</strong>

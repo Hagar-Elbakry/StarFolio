@@ -9,13 +9,13 @@ Route::get('/', function () {
 });
 
 Route::get('/movies', function() {
-   $actor = Actor::find(1);
-   $movies = $actor->movies()->simplePaginate(3);
+   $movies = Actor::find(1)->movies()->simplePaginate(3);
     return view('movies', ['movies' => $movies]);
 });
 
 Route::get('/movies/{movie}', function($id) {
-    $movie = Movie::find($id);
+    $movie = Movie::with('actors')->find($id);
+
     return view('/movie', ['movie' => $movie]);
 });
 

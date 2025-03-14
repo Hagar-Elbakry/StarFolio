@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Route::get('/movies', function() {
    $actor = Actor::find(1);
-   $movies = $actor->movies()->get();
+   $movies = $actor->movies()->simplePaginate(3);
     return view('movies', ['movies' => $movies]);
 });
 

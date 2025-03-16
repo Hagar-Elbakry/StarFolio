@@ -6,12 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model{
 
-    protected $fillable = [
-        'title',
-        'description',
-    ];
+    protected $guarded = [];
 
     public function actors() {
-        return $this->belongsToMany(Actor::class);
+        return $this->belongsToMany(Actor::class)->withTimestamps();
     }
 }

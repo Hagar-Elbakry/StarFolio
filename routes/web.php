@@ -23,6 +23,12 @@ Route::get('/movies/{movie}', function($id) {
     return view('movies.show', ['movie' => $movie]);
 });
 Route::post('/movies', function() {
+    request()->validate([
+        'title' => 'required|unique:movies,title',
+        'image' => 'required',
+        'description' => 'required',
+    ]);
+
    $movie = Movie::create([
         'title' => request('title'),
         'image' => request('image'),

@@ -3,12 +3,12 @@
         Movie
     </x-slot:heading>
     <p>
-    <div class="flex justify-center items-center min-h-calc(100vh-100px) py-10">
+    <div class="flex flex-col justify-center items-center max-h-calc(100vh-100px) py-5">
     <div class="max-w-2xl w-full bg-white rounded-lg overflow-hidden shadow-2xl p-8">
         <div class="px-8 py-6">
-            <div class="font-bold text-2xl mb-4 text-center">{{$movie['title']}}</div>
+            <div class="font-bold text-2xl mb-4 text-center">{{$movie->title}}</div>
             <p class="text-gray-700 text-lg leading-relaxed">
-                {{$movie['description']}}
+                {{$movie->description}}
             </p>
         </div>
 
@@ -18,5 +18,10 @@
             @endforeach
         </div>
     </div>
+        <div class="mt-4 w-full flex justify-center">
+            <p>
+                <x-button href="/movies/{{$movie->id}}/edit">Edit Movie</x-button>
+            </p>
+        </div>
     </div>
 </x-layout>

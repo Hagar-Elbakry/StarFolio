@@ -22,6 +22,7 @@ Route::get('/movies/{movie}', function($id) {
 
     return view('movies.show', ['movie' => $movie]);
 });
+
 Route::post('/movies', function() {
     request()->validate([
         'title' => 'required|unique:movies,title',
@@ -37,6 +38,35 @@ Route::post('/movies', function() {
     $movie->actors()->attach(1);
     return redirect('/movies');
 });
+
+Route::get('/movies/{movie}/edit', function($id) {
+    $movie = Movie::find($id);
+
+    return view('movies.edit', ['movie' => $movie]);
+});
+
+Route::patch('/movies/{movie}', function($id) {
+    $movie = Movie::findOrFail($id);
+    request()->validate([
+        'title' => 'required|unique:movies,title,' . $movie->id,
+        'image' => 'required',
+        'description' => 'required',
+    ]);
+
+    $movie->update([
+        'title' => request('title'),
+        'image' => request('image'),
+        'description' => request('description')
+    ]);
+
+    return redirect("/movies/$movie->id");
+});
+
+Route::delete('/movies/{movie}', function($id) {
+    Movie::findOrFail($id)->delete();
+    return redirect("/movies");
+});
+
 Route::get('/contact', function() {
     return view('contact');
 });

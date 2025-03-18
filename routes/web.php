@@ -17,8 +17,8 @@ Route::get('/movies/create', function() {
     return view('movies.create');
 });
 
-Route::get('/movies/{movie}', function($id) {
-    $movie = Movie::with('actors')->find($id);
+Route::get('/movies/{movie}', function(Movie $movie) {
+    $movie->with('actors');
 
     return view('movies.show', ['movie' => $movie]);
 });
@@ -39,14 +39,11 @@ Route::post('/movies', function() {
     return redirect('/movies');
 });
 
-Route::get('/movies/{movie}/edit', function($id) {
-    $movie = Movie::find($id);
-
+Route::get('/movies/{movie}/edit', function(Movie $movie) {
     return view('movies.edit', ['movie' => $movie]);
 });
 
-Route::patch('/movies/{movie}', function($id) {
-    $movie = Movie::findOrFail($id);
+Route::patch('/movies/{movie}', function(Movie $movie) {
     request()->validate([
         'title' => 'required|unique:movies,title,' . $movie->id,
         'image' => 'required',
@@ -62,8 +59,8 @@ Route::patch('/movies/{movie}', function($id) {
     return redirect("/movies/$movie->id");
 });
 
-Route::delete('/movies/{movie}', function($id) {
-    Movie::findOrFail($id)->delete();
+Route::delete('/movies/{movie}', function(Movie $movie) {
+    $movie->delete();
     return redirect("/movies");
 });
 

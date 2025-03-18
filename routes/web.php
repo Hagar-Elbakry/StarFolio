@@ -4,9 +4,8 @@ use App\Models\Actor;
 use Illuminate\Support\Facades\Route;
 use App\Models\Movie;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::view('/', 'home');
+Route::view('/contact', 'contact');
 
 Route::get('/movies', function() {
    $movies = Actor::find(1)->movies()->latest()->simplePaginate(3);
@@ -64,6 +63,4 @@ Route::delete('/movies/{movie}', function(Movie $movie) {
     return redirect("/movies");
 });
 
-Route::get('/contact', function() {
-    return view('contact');
-});
+

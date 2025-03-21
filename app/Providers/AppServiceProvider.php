@@ -22,8 +22,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('edit-movie', function(User $user, Movie $movie) {
-            return $movie->users->contains($user);
-        });
     }
 }

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Gate;
 class MovieController extends Controller
 {
     public function index() {
-        $movies = User::find(1)->movies()->latest()->simplePaginate(3);
+        $movies = User::find(Auth::id())->movies()->latest()->simplePaginate(3);
         return view('movies.index', ['movies' => $movies]);
     }
 
@@ -39,7 +39,6 @@ class MovieController extends Controller
     }
 
     public function edit(Movie $movie) {
-        Gate::authorize('edit-movie', $movie);
         return view('movies.edit', ['movie' => $movie]);
     }
 

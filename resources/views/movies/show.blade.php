@@ -19,9 +19,11 @@
         </div>
     </div>
         <div class="mt-4 w-full flex justify-center">
-            <p>
-                <x-button href="/movies/{{$movie->id}}/edit">Edit Movie</x-button>
-            </p>
+            @can('edit', $movie)
+                <p>
+                    <x-button href="/movies/{{$movie->id}}/edit">Edit Movie</x-button>
+                </p>
+            @endcan
         </div>
     </div>
 </x-layout>

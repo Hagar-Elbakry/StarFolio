@@ -19,6 +19,10 @@ class User extends Authenticatable
      */
     protected $guarded = [];
 
+    public function movies() {
+        return $this->belongsToMany(Movie::class)->withTimestamps();
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

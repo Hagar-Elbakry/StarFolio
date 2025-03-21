@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Actor;
 use App\Models\Movie;
+use App\Models\User;
 
 
 class MovieController extends Controller
 {
     public function index() {
-        $movies = Actor::find(1)->movies()->latest()->simplePaginate(3);
+        $movies = User::find(1)->movies()->latest()->simplePaginate(3);
         return view('movies.index', ['movies' => $movies]);
     }
 
@@ -17,7 +16,7 @@ class MovieController extends Controller
         return view('movies.create');
     }
     public function show(Movie $movie) {
-        $movie->with('actors');
+        $movie->with('users');
         return view('movies.show', ['movie' => $movie]);
     }
 
@@ -33,7 +32,7 @@ class MovieController extends Controller
             'image' => request('image'),
             'description' => request('description'),
         ]);
-        $movie->actors()->attach(1);
+        $movie->users()->attach(1);
         return redirect('/movies');
     }
 

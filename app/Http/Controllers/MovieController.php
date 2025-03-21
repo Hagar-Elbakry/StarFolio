@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 
 class MovieController extends Controller
@@ -38,13 +39,7 @@ class MovieController extends Controller
     }
 
     public function edit(Movie $movie) {
-        if(Auth::guest()) {
-            return redirect('/login');
-        }
-
-        if(!$movie->users->contains(Auth::user())) {
-            abort(403);
-        }
+        Gate::authorize('edit-movie', $movie);
         return view('movies.edit', ['movie' => $movie]);
     }
 

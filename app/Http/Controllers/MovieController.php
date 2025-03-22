@@ -34,7 +34,7 @@ class MovieController extends Controller
             'image' => request('image'),
             'description' => request('description'),
         ]);
-        $movie->users()->attach(1);
+        $movie->users()->attach(Auth::id());
         return redirect('/movies');
     }
 

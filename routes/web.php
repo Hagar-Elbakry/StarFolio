@@ -6,7 +6,7 @@ use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
-Route::view('/contact', 'contact');
+Route::view('/profile', 'profile');
 
 Route::get('/movies',[MovieController::class,'index'])->middleware('auth');
 Route::get('/movies/create',[MovieController::class,'create'])->middleware('auth');

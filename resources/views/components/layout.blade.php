@@ -4,32 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home Page</title>
-    @vite('resources/js/app.js')
-{{--    <script src="https://cdn.tailwindcss.com"></script>--}}
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="h-full">
-<!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-gray-100">
-  <body class="h-full">
-  ```
--->
 <div class="min-h-full">
     <nav class="bg-gray-800">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center">
                     <div class="shrink-0">
+                        <a href="/">
                         <img class="size-8" src="https://img.icons8.com/?size=100&id=VNOu35D2HWOH&format=png&color=000000" alt="Your Company">
+                        </a>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                             <x-nav-link href="/movies" :active="request()->is('movies')">Movies</x-nav-link>
-                            <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                            <x-nav-link href="/profile" :active="request()->is('profile')">Profile</x-nav-link>
                         </div>
                     </div>
                 </div>

@@ -35,8 +35,8 @@ class MovieController extends Controller
             'description' => request('description'),
             'genre' => request('genre'),
             'year' => request('year'),
+            'user_id' => Auth::id()
         ]);
-        $movie->user()->attach(Auth::id());
         return redirect('/movies');
     }
 

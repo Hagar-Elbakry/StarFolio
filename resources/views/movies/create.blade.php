@@ -31,6 +31,22 @@
                         <x-form-error name="description"/>
                     </div>
 
+                    <div class="col-span-full">
+                        <x-form-label for="genre">Genre</x-form-label>
+                        <div class="mt-2">
+                            <x-form-input name="genre" id="genre" required/>
+                        </div>
+                        <x-form-error name="genre"/>
+                    </div>
+
+                    <div class="col-span-full">
+                        <x-form-label for="year">Year</x-form-label>
+                        <div class="mt-2">
+                            <x-form-input name="year" id="year" required/>
+                        </div>
+                        <x-form-error name="year"/>
+                    </div>
+
             </div>
         <div class="mt-6 flex items-center justify-end gap-x-6">
             <a href="/movies" class="text-sm/6 font-semibold text-gray-900">Cancel</a>

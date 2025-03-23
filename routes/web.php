@@ -3,7 +3,6 @@
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
-use App\Models\Movie;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');

@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 
 
 class MovieController extends Controller
 {
     public function index() {
-        $movies = User::find(Auth::id())->movies()->latest()->simplePaginate(3);
+        $movies = Auth::user()->movies()->latest()->simplePaginate(3);
         return view('movies.index', ['movies' => $movies]);
     }
 
@@ -18,7 +17,6 @@ class MovieController extends Controller
         return view('movies.create');
     }
     public function show(Movie $movie) {
-        $movie->with('users');
         return view('movies.show', ['movie' => $movie]);
     }
 
@@ -27,14 +25,18 @@ class MovieController extends Controller
             'title' => 'required|unique:movies,title',
             'image' => 'required',
             'description' => 'required',
+            'genre' => 'required',
+            'year' => 'required',
         ]);
 
         $movie = Movie::create([
             'title' => request('title'),
             'image' => request('image'),
             'description' => request('description'),
+            'genre' => request('genre'),
+            'year' => request('year'),
         ]);
-        $movie->users()->attach(Auth::id());
+        $movie->user()->attach(Auth::id());
         return redirect('/movies');
     }
 
@@ -47,12 +49,16 @@ class MovieController extends Controller
             'title' => 'required|unique:movies,title,' . $movie->id,
             'image' => 'required',
             'description' => 'required',
+            'genre' => 'required',
+            'year' => 'required',
         ]);
 
         $movie->update([
             'title' => request('title'),
             'image' => request('image'),
-            'description' => request('description')
+            'description' => request('description'),
+            'genre' => request('genre'),
+            'year' => request('year')
         ]);
 
         return redirect("/movies/$movie->id");

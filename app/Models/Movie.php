@@ -8,7 +8,7 @@ class Movie extends Model{
 
     protected $guarded = [];
 
-    public function users() {
-        return $this->belongsToMany(User::class)->withTimestamps();
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }

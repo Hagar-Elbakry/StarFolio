@@ -12,10 +12,10 @@ class MoviePolicy
      * Determine whether the user can view any models.
      */
     public function edit(User $user, Movie $movie) :bool {
-        return $movie->users->contains($user);
+        return $movie->user->is($user);
     }
 
     public function show(User $user, Movie $movie) :bool {
-        return $movie->users->contains($user);
+        return $movie->user->is($user);
     }
 }

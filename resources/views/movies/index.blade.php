@@ -8,7 +8,7 @@
                     <div class="w-full max-w-sm rounded overflow-hidden shadow-lg bg-white">
                         <img class="w-full" src="{{$movie['image']}}" alt="movie">
                         <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">{{$movie['title']}}</div>
+                            <div class="font-bold text-xl mb-2">{{$movie['title'] . "( " . $movie->year . " )"}}</div>
                         </div>
                     </div>
                 </a>

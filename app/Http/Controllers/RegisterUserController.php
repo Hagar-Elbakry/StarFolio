@@ -14,6 +14,8 @@ class RegisterUserController extends Controller
             'name'=>'required',
             'email'=>'required|email',
             'password'=>'required|min:8|confirmed',
+            'image'=>'required',
+            'bio'=>'required'
         ]);
 
         $user = User::create($attributes);

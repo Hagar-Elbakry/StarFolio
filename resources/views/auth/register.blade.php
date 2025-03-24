@@ -36,6 +36,25 @@
                         </div>
                     </x-form-field>
 
+                    <x-form-field>
+                        <x-form-label for="image">Image</x-form-label>
+                        <div class="mt-2">
+                            <x-form-input name="image" id="image" required/>
+                            <x-form-error name="image"/>
+                        </div>
+                    </x-form-field>
+
+                    <div class="col-span-full">
+                        <label for="bio" class="block text-sm/6 font-medium text-gray-900">Bio</label>
+                        <div class="mt-2">
+                            <textarea name="bio"
+                                      id="bio"
+                                      rows="3"
+                                      class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                                      required></textarea>
+                        </div>
+                        <x-form-error name="bio"/>
+                    </div>
 
                 </div>
                 <div class="mt-6 flex items-center justify-end gap-x-6">

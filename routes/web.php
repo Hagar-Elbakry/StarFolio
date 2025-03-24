@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
-Route::view('/profile', 'profile');
 
 Route::get('/movies',[MovieController::class,'index'])->middleware('auth');
 Route::get('/movies/create',[MovieController::class,'create'])->middleware('auth');
@@ -29,13 +29,17 @@ Route::delete('/movies/{movie}', [MovieController::class, 'destroy'])
     ->middleware('auth')
     ->can('edit','movie');
 
-Route::get('/register', [RegisterUserController::class, 'create']);
-Route::post('/register', [RegisterUserController::class, 'store']);
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [RegisterUserController::class, 'create'])->middleware('guest');
+    Route::post('/register', [RegisterUserController::class, 'store'])->middleware('guest');
 
-Route::get('/login', [SessionController::class, 'create'])->name('login');
-Route::post('/login', [SessionController::class, 'store']);
+    Route::get('/login', [SessionController::class, 'create'])->name('login')->middleware('guest');
+    Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
+});
 
-Route::post('/logout', [SessionController::class, 'destroy']);
+Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+
+Route::get('/profile', ProfileController::class)->middleware('auth');
 
 
 

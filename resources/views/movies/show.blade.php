@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Movie">
     <x-slot:heading>
         Movie
     </x-slot:heading>

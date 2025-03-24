@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Profile">
     <x-slot:heading>
         Profile
     </x-slot:heading>

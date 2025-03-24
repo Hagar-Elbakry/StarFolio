@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Login">
     <x-slot:heading>
         Log In
     </x-slot:heading>

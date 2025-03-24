@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Edit Movie">
     <x-slot:heading>
         Edit Movie : {{$movie->title}}
     </x-slot:heading>
@@ -68,17 +68,6 @@
                         </div>
                     </div>
 
-                    <div class="col-span-full">
-                        <label for="description" class="block text-sm/6 font-medium text-gray-900">Description</label>
-                        <div class="mt-2">
-                            <textarea name="description"
-                                      id="description"
-                                      rows="3"
-                                      class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                                      required>{{$movie->description}}</textarea>
-                        </div>
-                        <x-form-error name="description"/>
-                    </div>
                 </div>
                 <div class="mt-6 flex items-center justify-between gap-x-6">
                     <div class="flex items-center">

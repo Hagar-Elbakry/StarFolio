@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Movies">
     <x-slot:heading>
        Movies Listing
     </x-slot:heading>
